@@ -1,0 +1,144 @@
+@font-face {
+  font-family: 'KodoMono';
+  src: url('fonts/KodeMono.ttf') format('truetype');
+}
+body {
+  margin: 0;
+  font-family: 'KodoMono';
+  background-color: #FDEDDA;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(40, 1fr);  /* 3 columns */
+  grid-template-rows: repeat(40, 1fr);    /* 3 rows */
+  justify-content: center;
+  margin-top: 40px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.grid-item {
+  background-color: #ffe6cc;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  border: 2px solid #c792ae;
+}
+
+.welcome-section {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;/* move to the top */
+  padding-top: 40px;       /* optional: gives space from the top */
+  background: linear-gradient(to bottom, #ACE8EF, #598BCD);
+}
+
+.welcome-box {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;  
+  background-color: #FDEDDA;
+  border: 10px solid #F0B1AB;
+  padding: 40px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.welcome-box h1 {
+  font-size: 3em;
+  margin: 0;
+  color: #792d5e;
+}
+
+.welcome-box p {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #555;
+}
+
+
+button.gridbutton, a.gridbutton{
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #EFBE89;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'KodoMono';
+  font-size: 1em;
+  transition: background 0.2s ease;
+  border: 2px solid #976363;
+  text-align: center;
+}
+
+a.gridbutton:link, a.gridbutton:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+
+
+button.gridbutton:hover, a.gridbutton:hover{
+  background-color: #e39a6f;
+}
+button.gridbutton:active, a.gridbutton:active {
+  background-color: #d88450;
+
+}
+
+.button1 { /*portfolio*/
+  grid-row: 1;
+  grid-column: 2 / 20;
+}
+.button2 { /*experience*/
+  grid-row: 2;
+  grid-column: 2 / 20;
+}
+
+button.button2:active {
+  background-color: #ffffff;
+}
+
+.button3 {
+  grid-row: 3;
+  grid-column: 2 / 20;
+}
+
+.grid-image {
+  grid-column: 21 / -1; /* spans columns 2 to 5 */
+  grid-row: 1 / 30;    /* spans rows 1 to 3 */
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* optional: controls how image fills space */
+
+}
+
+.star1 { /*one on the right*/
+  display: fixed;
+  right: 10vw;
+  top: 5vh;
+  height: 10%;
+  width: 10%;
+}
+
+.star2 {
+  display: fixed;
+  right: 90vw;
+  top: 20vh;
+  height: 10%;
+  width: 10%;
+}
+
+.ducktaglia {
+  display: fixed;
+  right: 12vw;
+  top: 30vh;
+  height: 10%;
+  width: 10%;
+}
+/*flex column, positioning, box model, positions, grid*/

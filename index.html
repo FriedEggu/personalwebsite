@@ -1,36 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome Section</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div>
-  
-  <section class="welcome-section">
-    <div class="welcome-box">
-    <h1>Welcome!</h1>
-    <p>I'm Alexandra Xu uhhh yaoi yaoiiii</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Section</title>
+    <style>
+      @font-face {
+        font-family: 'KodoMono';
+        src: url('fonts/KodeMono.ttf') format('truetype');
+      }
+
+      body {
+        margin: 0;
+        font-family: 'KodoMono';
+        background-color: #fdedda;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(40, 1fr); /* 40 columns */
+        grid-auto-rows: min-content; /* Rows size to content */
+        justify-content: center;
+        margin-top: 40px;
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        row-gap: 0; /* No space between rows initially */
+      }
+
+      .grid-item {
+        background-color: #ffe6cc;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5em;
+        border: 2px solid #c792ae;
+      }
+
+      .welcome-section {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        background: linear-gradient(to bottom, #ace8ef, #598bcd);
+      }
+
+      .welcome-box {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        align-items: center;
+        background-color: #fdedda;
+        border: 10px solid #f0b1ab;
+        padding: 40px;
+        text-align: center;
+        border-radius: 3px;
+      }
+
+      .welcome-box h1 {
+        font-size: 3em;
+        margin: 0;
+        color: #792d5e;
+      }
+
+      .welcome-box p {
+        margin-top: 10px;
+        font-size: 1em;
+        color: #555;
+      }
+
+      button.gridbutton,
+      a.gridbutton {
+        padding: 10px 20px;
+        margin-bottom: 0;
+        background-color: #efbe89;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'KodoMono';
+        font-size: 1em;
+        transition: background 0.2s ease;
+        border: 2px solid #976363;
+        text-align: center;
+      }
+
+      a.gridbutton:link,
+      a.gridbutton:visited {
+        text-decoration: none;
+        color: #000000;
+      }
+
+      button.gridbutton:hover,
+      a.gridbutton:hover {
+        background-color: #e39a6f;
+      }
+
+      button.gridbutton:active,
+      a.gridbutton:active {
+        background-color: #d88450;
+      }
+
+      /* When dropdown is active, adjust button appearance */
+      .button-wrapper.active button.gridbutton {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-color: #fdedda;
+      }
+
+      button.button2:active {
+        background-color: #ffffff;
+      }
+
+      /* Button wrapper - works within grid system hopefully*/
+      .button-wrapper {
+        position: relative;
+        grid-column: 2 / 20; /* matches your button column span */
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Remove individual button grid positioning since wrapper handles it now */
+      .button1,
+      .button2,
+      .button3 {
+        width: 100%;
+        margin-bottom: 0;
+      }
+
+      /* Make buttons stack seamlessly */
+      .button-wrapper:not(:first-child) .gridbutton {
+        margin-top: -2px; /* Overlap borders */
+        border-radius: 0;
+      }
+
+      /* First button keeps top corners rounded */
+      .button-wrapper:first-child .gridbutton {
+        border-radius: 5px 5px 0 0;
+      }
+
+      /* Last button gets bottom corners rounded when no dropdown */
+      .button-wrapper:nth-child(3) .gridbutton {
+        border-radius: 0 0 5px 5px;
+      }
+
+      /* Middle button has no rounded corners */
+      .button-wrapper:nth-child(2) .gridbutton {
+        border-radius: 0;
+      }
+
+      /* When dropdown is active, remove bottom radius */
+      .button-wrapper.active .gridbutton {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      /* Arrow indicator for dropdown buttons */
+      button.gridbutton.has-dropdown::after {
+        content: ' ▼';
+        font-size: 0.8em;
+        margin-left: 5px;
+        display: inline-block;
+        transition: transform 0.3s;
+      }
+
+      .button-wrapper.active button.gridbutton::after {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-content {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease-out,
+          opacity 0.3s ease-out;
+        background-color: #fdedda;
+        border: 2px solid #976363;
+        border-radius: 0 0 5px 5px;
+        opacity: 0;
+        border-top: none;
+        margin-top: 0;
+      }
+
+      /* Active dropdown */
+      .button-wrapper.active .dropdown-content {
+        max-height: 300px;
+        opacity: 1;
+        transition:
+          max-height 0.3s ease-in,
+          opacity 0.3s ease-in;
+        box-shadow: 0px 4px 8px rgba(121, 45, 94, 0.1);
+      }
+
+      /* Add spacing after active dropdown */
+      .button-wrapper.active {
+        margin-bottom: 10px;
+      }
+
+      /* Dropdown links - styled to match your theme */
+      .dropdown-content a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #792d5e;
+        font-family: 'KodoMono';
+        font-size: 0.9em;
+        border-bottom: 1px solid #f0b1ab;
+        transition: background-color 0.2s ease;
+      }
+
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f0b1ab;
+        color: #555;
+      }
+
+      .grid-image {
+        grid-column: 21 / -1; /* spans columns 21 to end */
+        grid-row: 1 / span 20; /* spans enough rows to cover all content */
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        align-self: start;
+      }
+
+      .star1 {
+        /*one on the right*/
+        position: fixed;
+        right: 10vw;
+        top: 5vh;
+        height: 10%;
+        width: 10%;
+      }
+
+      .star2 {
+        position: fixed;
+        left: 10vw;
+        top: 20vh;
+        height: 10%;
+        width: 10%;
+      }
+
+      .ducktaglia {
+        position: fixed;
+        right: 12vw;
+        top: 30vh;
+        height: 10%;
+        width: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <section class="welcome-section">
+        <div class="welcome-box">
+          <h1>Welcome!</h1>
+          <p>I'm Alexandra Xu uhhh yaoi yaoiiii</p>
+        </div>
+
+        <div class="grid-container">
+          <div class="button-wrapper">
+            <button
+              class="gridbutton button1 has-dropdown"
+              onclick="toggleDropdown(this)"
+            >
+              Portfolio
+            </button>
+            <div class="dropdown-content">
+              <a href="portfolio.html">All Projects</a>
+              <a href="#">Web Development</a>
+              <a href="#">Design Work</a>
+              <a href="#">Photography</a>
+            </div>
+          </div>
+
+          <div class="button-wrapper">
+            <button
+              class="gridbutton button2 has-dropdown"
+              onclick="toggleDropdown(this)"
+            >
+              Experience
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Work Experience</a>
+              <a href="#">Education</a>
+              <a href="#">Skills & Technologies</a>
+              <a href="#">Certifications</a>
+            </div>
+          </div>
+
+          <div class="button-wrapper">
+            <button
+              class="gridbutton button3 has-dropdown"
+              onclick="toggleDropdown(this)"
+            >
+              Contact Me
+            </button>
+            <div class="dropdown-content">
+              <a href="mailto:alexandra@example.com">Email</a>
+              <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+              <a href="https://github.com" target="_blank">GitHub</a>
+              <a href="#">Discord</a>
+            </div>
+          </div>
+
+          <img src="images/meeee.png" alt="A sample image" class="grid-image" />
+        </div>
+
+        <img src="images/star1.png" class="star1" alt="Star decoration" />
+        <img src="images/star2.png" class="star2" alt="Star decoration" />
+        <img src="images/image2.png" class="ducktaglia" alt="Duck decoration" />
+      </section>
     </div>
 
-    
-  <div class="grid-container">
+    <script>
+      function toggleDropdown(button) {
+        // Get the parent wrapper
+        const wrapper = button.closest('.button-wrapper')
 
-  <a href="portfolio.html" class="gridbutton button1">Portfolio</a>
-  <button class="gridbutton button2" onclick="this.classList.toggle('active')">Experience</button>
-  <button class="gridbutton button3">Contact Me</button>
-  <img src="images/meeee.png" alt="A sample image" class="grid-image">
-  </div>
+        // Close other dropdowns
+        document.querySelectorAll('.button-wrapper').forEach((w) => {
+          if (w !== wrapper) {
+            w.classList.remove('active')
+          }
+        })
 
-  <img src="images/star1.png" class="star1">
-  <img src="images/star2.png" class="star2">
-  <img src="images/image2.png" class="ducktaglia">
+        // Toggle current dropdown
+        wrapper.classList.toggle('active')
+      }
 
-</div>
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function (event) {
+        if (!event.target.closest('.button-wrapper')) {
+          document.querySelectorAll('.button-wrapper').forEach((w) => {
+            w.classList.remove('active')
+          })
+        }
+      })
 
-</section>
+      // Prevent event bubbling for dropdown links
+      document.querySelectorAll('.dropdown-content a').forEach((link) => {
+        link.addEventListener('click', function (e) {
+          e.stopPropagation()
+        })
+      })
+    </script>
+  </body>
+</html>
 
-    
-</body>

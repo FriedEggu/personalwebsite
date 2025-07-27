@@ -48,10 +48,17 @@
         font-size: 1em;
         color: #555;
       }
+    
+      button.exp-button{
+        background-color: #6E2C58;
+        color: #FDEDDA;
+        font-family: 'KodoMono';
+        margin-bottom: 4px;
 
+      }
       button.gridbutton {
         padding: 10px 20px;
-        margin-bottom: 0;
+        margin-top: 10px;
         background-color: #efbe89;
         border: 2px solid #976363;
         cursor: pointer;
@@ -118,13 +125,13 @@
         display: inline-block;
         transition: transform 0.3s;
       }
+      .Experience-header {
+        margin: 3px;
+      }
+      .flex-div {
+        display: block;
+      }
 
-      .button-wrapper.active button.gridbutton::after {
-        transform: rotate(180deg);
-      }
-      .flex-container {
-        display: flex;
-      }
       /* Dropdown content */
       .dropdown-content {
         max-height: 0;
@@ -140,17 +147,16 @@
 
       /* Active dropdown */
       .button-wrapper.active .dropdown-content {
-        max-height: 300px;
+        max-height: 600px;
         opacity: 1;
         transition:
           max-height 0.3s ease-in,
           opacity 0.3s ease-in;
-        box-shadow: 0px 4px 8px rgba(121, 45, 94, 0.1);
       }
 
       /* Dropdown links */
       .dropdown-content a {
-        display: block;
+        display: flex;
         padding: 10px 15px;
         text-decoration: none;
         color: #792d5e;
@@ -168,7 +174,6 @@
         background-color: #f0b1ab;
         color: #555;
       }
-
       /* Grid image */
       .grid-image {
         grid-column: 21 / -1;

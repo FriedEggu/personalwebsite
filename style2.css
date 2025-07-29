@@ -6,20 +6,19 @@
 }
 
 body {
-  background: #ACE8EF
-}
-.portfoliopart {
-  background: #Aaaaaa;
+  background: linear-gradient(to bottom, #ace8ef, #598bcd);
 }
 
-.h1 {
-  font-size: 3em;
-  color: #6E2C58;
+.portfoliopart {
+  background: #fdedda;
+  margin-bottom: 10px;
 }
+
+
 
 .title h1 {
-  font-size: 3em;
-  margin: 0;
+  font-size: auto;
+  margin: 10px;
   color: #792d5e;
 }
 
@@ -30,7 +29,83 @@ body {
     height: 80px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 10px;
     display: flex;
     justify-content: center;     /* centers horizontally */
     align-items: center;
+    border: 2px solid #792d5e;
 }
+.button-wrapper {
+
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;     /* centers horizontally */
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.home-button {
+    position: relative;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #efbe89;
+    border: 2px solid #976363;
+    font-family: 'KodoMono';
+    border-radius: 5px;
+}
+
+button.home-button:hover {
+        background-color: #e39a6f;
+        cursor: pointer;
+      }
+
+.header-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;     /* centers horizontally */
+    align-items: center;
+    border-bottom: 4px solid #6E2C58;
+}
+
+.portfolio-header {
+    color: #6E2C58;
+    font-family: 'KodoMono';
+
+}
+
+.image-wrapper {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative
+}
+
+.image-wrapper img {
+ width: 95%;
+ height: 95%;
+ object-fit: cover;
+ display: block;
+ border: 2px solid #F0B1AB;
+ border-radius: 5px;
+}
+
+.Gallery-section img:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+    display: block;
+    opacity: 0.7;
+
+}
+
+.Gallery-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+
+}
+

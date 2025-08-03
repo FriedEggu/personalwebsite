@@ -73,9 +73,55 @@
       button.gridbutton:active {
         background-color: #d88450;
       }
+      
+      .popup {
+        width: 400px;
+        height: 600px;
+        background-color: #f0b1ab;
+        border: 2px solid #6E2C58;
+        border-radius: 8px;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        z-index: 10;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
 
-      button.button2:active {
-        background-color: #ffffff;
+      .popup-header {
+        background-color: #6E2C58;
+        color: #fff;
+        padding: 10px;
+        cursor: move;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .popup-content {
+        padding: 20px;
+      }
+
+      .close-btn {
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      button.gridbutton {
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: #efbe89;
+        border: 2px solid #976363;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'KodoMono';
+        font-size: 1em;
+        width: 100%;
+        transition:
+          background 0.2s ease-in-out,
+          border-bottom-color 0.3s,
+          border-radius 0.3s ease;
       }
 
 

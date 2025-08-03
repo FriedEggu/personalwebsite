@@ -85,16 +85,24 @@
 
 
           <div class="button-wrapper">
-            <button
-              class="gridbutton button3"
-              onclick="toggleDropdown(this)"
-            >
-              Contact Me
-            </button>
-            <div class="dropdown-content"></div>
+            <button class="gridbutton gridbutton3" id="openModalBtn"> Contact Me </button>
+
+              <div id="popup" class="popup">
+              <div id="popupHeader" class="popup-header">
+                Contact Me
+              <span id="closeBtn" class="close-btn">&times;</span>
+              </div>
+              
+              <div class="popup-content">
+                <p>im jerkin offff</p>
+              </div>
+              </div>
+
           </div>
 
-          <img src="images/meeee.png" alt="A sample image" class="grid-image" />
+
+
+        <img src="images/meeee.png" alt="A sample image" class="grid-image" />
         </div>
 
         <img src="images/star1.png" class="star1" alt="Star decoration" />
@@ -104,7 +112,45 @@
     </div>
 
     <script>
-      function toggleDropdown(button) {
+
+      //open and close
+        const openBtn = document.getElementById("openModalBtn");
+        const popup = document.getElementById("popup");
+        const closeBtn = document.getElementById("closeBtn");
+        const header = document.getElementById("popupHeader");
+
+        openBtn.onclick = () => {
+          popup.style.display = "block";
+        };
+
+        closeBtn.onclick = () => {
+          popup.style.display = "none";
+        };
+
+        // Drag logic
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        header.addEventListener("mousedown", (e) => {
+          isDragging = true;
+          offsetX = e.clientX - popup.offsetLeft;
+          offsetY = e.clientY - popup.offsetTop;
+        });
+
+        document.addEventListener("mousemove", (e) => {
+          if (isDragging) {
+            popup.style.left = `${e.clientX - offsetX}px`;
+            popup.style.top = `${e.clientY - offsetY}px`;
+          }
+        });
+
+        document.addEventListener("mouseup", () => {
+          isDragging = false;
+        });
+
+
+
+            function toggleDropdown(button) {
         // Get the parent wrapper
         const wrapper = button.closest('.button-wrapper') //finds nearest button wrapper 
 

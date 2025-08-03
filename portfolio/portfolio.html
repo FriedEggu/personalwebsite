@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../style2.css" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Welcome to my portfolio!</h1>
+    </div>
+    <div class="button-wrapper">
+      <button
+        class="home-button"
+        onclick="window.location.href='../index.html'"
+      >
+        Go Back to Home
+      </button>
+    </div>
+
+    <section class="portfoliopart">
+      <div class="header-wrapper">
+        <h1 class="portfolio-header">Fanart/ Personal Work</h1>
+      </div>
+      <div class="Gallery-section" id="fanart-gallery">
+        <!-- js will render images here -->
+      </div>
+    </section>
+
+    <section class="portfoliopart">
+      <div class="header-wrapper">
+        <h1 class="portfolio-header">AP Art</h1>
+      </div>
+      <div class="Gallery-section" id="ap-art-gallery">
+        <!-- js will render images here -->
+      </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <span class="lightbox-nav lightbox-prev">&#10094;</span>
+      <span class="lightbox-nav lightbox-next">&#10095;</span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+        <div
+          id="lightbox-separator"
+          class="lightbox-separator"
+          style="display: none"
+        >
+          <div class="separator-content">
+            <h2>AP Art Collection</h2>
+            <p>Academic Portfolio • Advanced Placement</p>
+          </div>
+        </div>
+      </div>
+      <div class="lightbox-counter">
+        <span id="current-index">1</span> / <span id="total-count">1</span>
+      </div>
+    </div>
+
+    <script src="portfolio.js"></script>
+  </body>
+</html>

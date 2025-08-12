@@ -81,8 +81,6 @@
         border: 2px solid #6E2C58;
         border-radius: 8px;
         position: absolute;
-        top: 100px;
-        left: 100px;
         z-index: 10;
         display: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -100,6 +98,7 @@
       }
 
       .popup-content {
+        text-align: center;
         padding: 20px;
       }
 
@@ -237,4 +236,9 @@
         top: 1vh;
         height: auto;
         width: 28%;
+      }
+      .ducktaglia-contact {
+        position: flex;
+        width: 80%;
+        height:auto;
       }

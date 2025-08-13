@@ -158,14 +158,17 @@
         document.addEventListener("mouseup", () => {
           isDragging = false;
         });
-//noise effect
-        const wrapper = document.querySelector('.welcome-wrapper');
+
+        //noise effect
+        const wrappers = document.querySelectorAll('.welcome-wrapper');
         const sound = document.getElementById('hoverSound');
 
-        wrapper.addEventListener('mouseenter', () => {
-          sound.currentTime = 0; // rewind to start so it plays each time
-          sound.play();
-        });
+        wrappers.forEach(wrapper => {
+          wrapper.addEventListener('mouseenter', () => {
+            sound.currentTime = 0; // restart sound
+            sound.play();
+          });
+  });
 
             function toggleDropdown(button) {
         // Get the parent wrapper

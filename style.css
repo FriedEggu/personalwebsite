@@ -203,6 +203,12 @@
         background-color: #f0b1ab;
         color: #555;
       }
+
+      .welcome-wrapper :hover {
+        cursor: pointer;
+        rotate: 30deg;
+      }
+
       /* Grid image */
       .grid-image {
         grid-column: 21 / -1;
@@ -215,28 +221,32 @@
 
       /* Decorative images */
       .star1 {
-        position: flex;
-        right: 1vw;
-        top: 3vh;
+        position: absolute;
+        z-index: 4;
+        right: 3vw;
+        top: 1vh;
         height: auto;
         width: 15%;
       }
 
       .star2 {
-        position: flex;
-        left: 9vw;
-        top: 1vh;
+        position: absolute;
+        z-index: 3;
+        left: 4vw;
+        top: 17vh;
         height: auto;
         width: 14%;
       }
 
       .ducktaglia {
-        position: flex;
-        right: 12vw;
-        top: 1vh;
+        position: absolute;
+        z-index: 3;
+        right: 2vw;
+        top: 19vh;
         height: auto;
         width: 28%;
       }
+
       .ducktaglia-contact {
         position: flex;
         width: 80%;

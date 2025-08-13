@@ -107,10 +107,18 @@
 
         <img src="images/meeee.png" alt="A sample image" class="grid-image" />
         </div>
+        <div class="welcome-wrapper">
+            <img src="images/star1.png" class="star1" alt="Star decoration" />
+        </div>
+        <div class="welcome-wrapper">
+          <img src="images/star2.png" class="star2" alt="Star decoration" />
+        </div>
+        <div class="welcome-wrapper">
+          <img src="images/Ducktaglia.png" class="ducktaglia" alt="Duck decoration" />
+        </div>
 
-        <img src="images/star1.png" class="star1" alt="Star decoration" />
-        <img src="images/star2.png" class="star2" alt="Star decoration" />
-        <img src="images/Ducktaglia.png" class="ducktaglia" alt="Duck decoration" />
+        <audio id="hoverSound" src="sounds/splat.mp3" preload="auto"></audio>
+
       </section>
     </div>
 
@@ -150,8 +158,14 @@
         document.addEventListener("mouseup", () => {
           isDragging = false;
         });
+//noise effect
+        const wrapper = document.querySelector('.welcome-wrapper');
+        const sound = document.getElementById('hoverSound');
 
-
+        wrapper.addEventListener('mouseenter', () => {
+          sound.currentTime = 0; // rewind to start so it plays each time
+          sound.play();
+        });
 
             function toggleDropdown(button) {
         // Get the parent wrapper

@@ -252,3 +252,41 @@
         width: 80%;
         height:auto;
       }
+
+      .contact-info {
+        display: relative;
+      }
+
+      .res-button {
+        color:#6E2C58;
+        font-family: 'KodoMono';
+        font-size: 1em;
+        background-color: #FDEDDA;
+        width: 37%;
+        height: auto;
+        border: 2px solid #6E2C58;
+        padding: 1%;
+        border-radius: 5px;
+      }
+
+      .res-wrapper :hover {
+        background-color: #efd0bd;
+        cursor: pointer;
+        border: 2px solid #d1817a;
+      }
+
+      .email-button {
+        background-color: #efbe89;
+        color: #6E2C58;
+        padding: 10px 20px;
+        text-decoration: none;
+        border: 2px solid #6E2C58;
+        border-radius: 5px;
+        display: inline-block;
+      }
+      
+      .email-wrap :hover {
+        color:#efd0bd;
+        cursor: pointer;
+        box-shadow: 0 2px 2px rgba(92, 40, 6, 0.2);
+      }

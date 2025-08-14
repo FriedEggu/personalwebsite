@@ -95,9 +95,14 @@
               
               <div class="popup-content">
                 <p>im jerkin offff</p>
+                <div class="res-wrapper">
+                  <button class="res-button" id="resButton">Resume</button>
+                </div>
                 
-                <img src="images/Ducktaglia.png" class="ducktaglia-contact" alt="Duck decoration" />
-                <lh>where am I</lh>
+                <img src="images/duckmail.png" class="ducktaglia-contact" alt="Duck decoration" />
+
+                <p class="contact-info">where am I</p>
+                <p class="email-wrap"><a class="email-button" href="mailto:xualexandra37@gmail.com">Send an email!</a></p>
               </div>
               </div>
 
@@ -132,6 +137,12 @@
 
         openBtn.onclick = () => {
           popup.style.display = "block";
+          popup.style.position = "fixed";
+          popup.style.top = "30%";
+          popup.style.left = "30%";
+          popup.style.zIndex = "5";
+          popup.style.alignItems = "center";
+          popup.style.justifyContent = "center";
         };
 
         closeBtn.onclick = () => {
@@ -159,6 +170,13 @@
           isDragging = false;
         });
 
+        //resume button
+        const resButton = document.getElementById('resButton');
+        resButton.addEventListener('click', () => {
+          window.open('https://docs.google.com/document/d/1gf50xXMxDnBF6bupWNmjTec3_MiFXB61mdzf_BsLnds/edit?usp=sharing', '_blank');
+        });
+
+
         //noise effect
         const wrappers = document.querySelectorAll('.welcome-wrapper');
         const sound = document.getElementById('hoverSound');
@@ -168,7 +186,7 @@
             sound.currentTime = 0; // restart sound
             sound.play();
           });
-  });
+        });
 
             function toggleDropdown(button) {
         // Get the parent wrapper

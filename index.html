@@ -3,13 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+    .alert {
+        opacity: 0;
+      }
+
+      @media (max-width: 768px) {
+      .alert {
+        opacity: 1;
+        display: flex;
+        background-color: rgba(239, 208, 189, 0.7);
+        padding: 20px;
+        position: fixed;
+        z-index: 6;
+        margin-top: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        transition: opacity 500ms ease;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .alert.bye {
+        opacity: 0;
+      }
+      .alert-txt {
+        display: flex;
+        font-size: 18px;
+        margin-left: 20px;
+
+      }
+
+      .close-btn {
+        display: flex;
+        background-color: #efbe89;
+        border: 3px solid #976363;
+        border-radius: 5px;
+        padding: 5px 15px;
+        font-size: 20px;
+        cursor: pointer;
+        margin-right: 5%;
+      }
+      .close-btn:hover {
+        color: rgb(255, 255, 255);
+      }
+
+    }
+      </style>
+
     <title>Welcome Section</title>
     <link rel="stylesheet" href="style.css">
     
   </head>
   <body>
     <div>
+      <div id="alert" class="alert">
+        <p class="alert-txt">If you dont view this on desktop i will kill myself</p>
+        <span id="closeBtn" class="close-btn">Ok!</span>
+      </div>
+      
       <section class="welcome-section">
+        
         <div class="welcome-box">
           <h1>Welcome!</h1>
           <p>This website was made to practice my UI/UX frontend skills but to also be silly and goofy. Have funnn</p>
@@ -219,6 +275,22 @@
           e.stopPropagation()
         })
       })
+
+      //alert exit button 
+      document.addEventListener("DOMContentLoaded", () => {
+      const closeBtn = document.querySelector(".close-btn");
+      const alertBox = document.querySelector(".alert");
+
+      closeBtn.addEventListener("click", () => {
+        alertBox.classList.add("bye");
+
+      // Wait for transition to finish, then remove element
+      alertBox.addEventListener("transitionend", () => {
+        alertBox.style.display = "none";
+      }, { once: true });
+     });
+    });
+
     </script>
   </body>
 </html>

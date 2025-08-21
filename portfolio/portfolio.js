@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // update total count
   totalCountSpan.textContent = allImages.length
-
+// move 
   closeBtn.addEventListener('click', closeLightbox)
   prevBtn.addEventListener('click', () => navigateLightbox(-1))
   nextBtn.addEventListener('click', () => navigateLightbox(1))
